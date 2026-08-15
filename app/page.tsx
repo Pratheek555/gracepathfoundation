@@ -78,7 +78,7 @@ export default function Home() {
       <div className="topline">
         <div className="shell topline-inner">
           <span>Grassroots action for a more just, inclusive India.</span>
-          <a href="mailto:gracepathdevelopmentfoundation@gmail.com">Write to us <span aria-hidden="true">↗</span></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gracepathdevelopmentfoundation@gmail.com&su=Hello%20Gracepath" target="_blank" rel="noopener noreferrer">Write to us <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -203,7 +203,7 @@ export default function Home() {
 
       <section className="support section shell" id="support">
         <div className="support-card">
-          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Get involved</div><h2>There’s room<br />for <em>you</em> here.</h2><p>Whether you give your time, your skills, or a little support, you help build pathways to a more hopeful future.</p><a className="button button--dark" href="mailto:gracepathdevelopmentfoundation@gmail.com?subject=I%20want%20to%20support%20Gracepath">Start a conversation <span aria-hidden="true">↗</span></a></div>
+          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Get involved</div><h2>There’s room<br />for <em>you</em> here.</h2><p>Whether you give your time, your skills, or a little support, you help build pathways to a more hopeful future.</p><a className="button button--dark" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com&amp;su=I%20want%20to%20support%20Gracepath" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a></div>
           <div className="support-art"><div className="support-circle support-circle--back" /><div className="support-circle support-circle--front" /><div className="support-message">Bring<br /><em>what you can.</em></div><div className="support-sun" /></div>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function Home() {
       <footer className="footer" id="contact">
         <div className="shell footer-top">
           <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></a><p>Empowering lives,<br />enriching communities.</p></div>
-          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919825011579">+91-98250-11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
+          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919825011579">+91-98250-11579</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com" target="_blank" rel="noopener noreferrer">gracepathdevelopmentfoundation@gmail.com</a></div>
           <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#support">Get involved</a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala <span aria-hidden="true">♥</span></span></div>
