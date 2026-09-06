@@ -2,35 +2,28 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import type { FormEvent } from "react";
 
-const programs = [
+const programImages = [
   {
-    number: "01",
-    title: "Education support",
-    text: "Literacy drives, non-formal learning, dropout prevention, and scholarship assistance for children and youth.",
-    icon: "book",
-    accent: "mint",
+    src: "/gracepath/programs/community-outreach-01.png",
+    alt: "Gracepath team members speaking with a resident during community outreach in Kottayam",
   },
   {
-    number: "02",
-    title: "Health & nutrition",
-    text: "Free medical camps, nutrition awareness, mother-and-child health initiatives, and public hygiene drives.",
-    icon: "heart",
-    accent: "peach",
+    src: "/gracepath/programs/community-outreach-02.png",
+    alt: "Gracepath team members delivering essential supplies to a household in Kottayam",
   },
   {
-    number: "03",
-    title: "Livelihoods & skills",
-    text: "Vocational training, trade workshops, career guidance, and microenterprise support for sustainable self-employment.",
-    icon: "spark",
-    accent: "lavender",
+    src: "/gracepath/programs/community-outreach-03.png",
+    alt: "A Gracepath volunteer handing supplies to a community member",
   },
   {
-    number: "04",
-    title: "Environment & resilience",
-    text: "Sanitation campaigns, waste management, tree plantation, water conservation, and disaster recovery support.",
-    icon: "leaf",
-    accent: "yellow",
+    src: "/gracepath/programs/community-outreach-04.png",
+    alt: "A Gracepath team member distributing a basket of essential supplies",
+  },
+  {
+    src: "/gracepath/programs/community-outreach-05.png",
+    alt: "Gracepath team members and community partners gathered together",
   },
 ];
 
@@ -40,52 +33,50 @@ const impact = [
   ["1", "shared purpose"],
 ];
 
-function Icon({ name }: { name: string }) {
-  const common = {
-    width: 22,
-    height: 22,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.8,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  };
-
-  if (name === "book") {
-    return <svg {...common}><path d="M4 4.8A2.8 2.8 0 0 1 6.8 2H20v17H6.8A2.8 2.8 0 0 0 4 21.8V4.8Z" /><path d="M4 5h14M8 7h6M8 11h8M8 15h5" /></svg>;
-  }
-  if (name === "heart") {
-    return <svg {...common}><path d="M20.8 8.9c0 5.2-8.8 10.1-8.8 10.1S3.2 14.1 3.2 8.9A4.6 4.6 0 0 1 12 6.5a4.6 4.6 0 0 1 8.8 2.4Z" /><path d="M7.6 10.5h2l1-2.1 1.7 4.2 1-2.1h2.1" /></svg>;
-  }
-  if (name === "spark") {
-    return <svg {...common}><path d="m12 2 1.3 5.1L18 9l-4.7 1.9L12 16l-1.3-5.1L6 9l4.7-1.9L12 2Z" /><path d="m19 14 .7 2.3L22 17l-2.3.7L19 20l-.7-2.3L16 17l2.3-.7L19 14ZM5 15l.6 1.9L7.5 17l-1.9.6L5 19.5l-.6-1.9L2.5 17l1.9-.6L5 15Z" /></svg>;
-  }
-  if (name === "leaf") {
-    return <svg {...common}><path d="M20.8 3.4C12 3.6 5.1 5.8 4.1 12.1c-.6 3.9 2.1 6.5 5.3 6.5 6.5 0 9.8-7.3 11.4-15.2Z" /><path d="M3 21c3.2-4.4 7.1-7.4 12-9.7" /><path d="M8.3 17.9c.1-2.1-.5-3.9-2.2-5.2" /></svg>;
-  }
-  return <svg {...common}><path d="M5 12h14M13 6l6 6-6 6" /></svg>;
-}
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentProgramImage, setCurrentProgramImage] = useState(0);
+  const [gmailDraftOpened, setGmailDraftOpened] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+  const showPreviousProgramImage = () => setCurrentProgramImage((current) => (current - 1 + programImages.length) % programImages.length);
+  const showNextProgramImage = () => setCurrentProgramImage((current) => (current + 1) % programImages.length);
+
+  const submitContactForm = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "");
+    const email = String(formData.get("email") || "");
+    const phone = String(formData.get("phone") || "Not provided");
+    const inquiryType = String(formData.get("inquiryType") || "General inquiry");
+    const message = String(formData.get("message") || "");
+    const subject = `Gracepath website inquiry — ${inquiryType} — ${name}`;
+    const body = `Hello Gracepath team,\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nReason for contacting: ${inquiryType}\n\nMessage:\n${message}`;
+    const gmailParameters = new URLSearchParams({
+      view: "cm",
+      fs: "1",
+      to: "gracepathdevelopmentfoundation@gmail.com",
+      su: subject,
+      body,
+    });
+
+    window.open(`https://mail.google.com/mail/?${gmailParameters.toString()}`, "_blank", "noopener,noreferrer");
+    setGmailDraftOpened(true);
+  };
 
   return (
     <main>
       <div className="topline">
         <div className="shell topline-inner">
-          <span>Grassroots action for a more just, inclusive India.</span>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gracepathdevelopmentfoundation@gmail.com&su=Hello%20Gracepath" target="_blank" rel="noopener noreferrer">Write to us <span aria-hidden="true">↗</span></a>
+          <span>Grassroot Actions for a more just and inclusive India</span>
+          <a href="#contact">Write to us <span aria-hidden="true">↓</span></a>
         </div>
       </div>
 
       <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="#top" onClick={closeMenu} aria-label="Gracepath Development Foundation home">
-            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo.png" alt="Gracepath Development Foundation" fill sizes="180px" /></span>
+            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="180px" /></span>
           </a>
           <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
             <span /><span /><span />
@@ -95,7 +86,7 @@ export default function Home() {
             <a href="#programs" onClick={closeMenu}>What we do</a>
             <a href="#approach" onClick={closeMenu}>Our approach</a>
             <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-cta" href="#support" onClick={closeMenu}>Support our work <span aria-hidden="true">↗</span></a>
+            <a className="nav-cta" href="#contact" onClick={closeMenu}>Contact us <span aria-hidden="true">↓</span></a>
           </nav>
         </div>
       </header>
@@ -105,18 +96,18 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> A foundation for shared progress</p>
             <h1>Small steps.<br /><em>Lasting change.</em></h1>
-            <p className="hero-lede">We walk alongside underserved communities to make education, health, dignity, and opportunity part of everyday life.</p>
+            <p className="hero-lede">We walk alongside to strengthen communities&apos; education, health, dignity and opportunity and make it part of their everyday life.</p>
             <div className="hero-actions">
-              <a className="button button--dark" href="#support">Be part of the change <span aria-hidden="true">↗</span></a>
+              <a className="button button--dark" href="#contact">Contact us <span aria-hidden="true">↓</span></a>
               <a className="text-link" href="#programs">Explore our work <span aria-hidden="true">↓</span></a>
             </div>
-            <div className="hero-note"><span className="note-dot" /> Grounded in communities. Growing with care.</div>
+            <div className="hero-note"><span className="note-dot" /> Empowering Lives, Enriching Communities</div>
           </div>
-          <div className="hero-art" aria-label="A community gathering representing Gracepath's work">
+          <div className="hero-art" aria-label="A community gathering representing Gracepath&apos;s work">
             <div className="art-orbit art-orbit--one" />
             <div className="art-orbit art-orbit--two" />
-            <div className="art-card art-card--green"><span>01</span><strong>Listen<br />first.</strong></div>
-            <div className="art-card art-card--orange"><span>02</span><strong>Grow<br />together.</strong></div>
+            <div className="art-card art-card--green"><strong>Listen<br />first.</strong></div>
+            <div className="art-card art-card--orange"><strong>Grow<br />together.</strong></div>
             <div className="art-illustration">
               <div className="sun" />
               <div className="hill hill--back" />
@@ -148,11 +139,11 @@ export default function Home() {
             <a className="text-link text-link--teal" href="/about">Our story <span aria-hidden="true">↗</span></a>
           </div>
           <div className="about-visual">
-            <div className="visual-label">The work is local.<br /><em>The hope is shared.</em></div>
+            <div className="visual-label">The work is in-depth.<br /><em>The hope is shared.</em></div>
             <div className="visual-sun" />
             <div className="visual-path" />
             <div className="visual-leaf visual-leaf--one" /><div className="visual-leaf visual-leaf--two" /><div className="visual-leaf visual-leaf--three" />
-            <div className="visual-quote">“A just, inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.”</div>
+            <div className="visual-quote">“An inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.”</div>
           </div>
         </div>
       </section>
@@ -161,26 +152,32 @@ export default function Home() {
         <div className="shell">
           <div className="section-heading-row">
             <div className="section-kicker"><span>02</span><div /> What we do</div>
-            <p>Holistic programs designed with communities, for communities.</p>
+            <p>Appropriate programs designed specifically for each community&apos;s needs.</p>
           </div>
-          <div className="program-intro"><h2>Change grows<br /><em>in many ways.</em></h2><p>From a child opening their first book to a neighborhood planting its first community garden, every action matters.</p></div>
-          <div className="program-grid">
-            {programs.map((program) => (
-              <article className="program-card" key={program.number}>
-                <div className={`program-icon ${program.accent}`}><Icon name={program.icon} /></div>
-                <div className="program-number">{program.number}</div>
-                <h3>{program.title}</h3>
-                <p>{program.text}</p>
-                <a href="#support" aria-label={`Support ${program.title}`}>Learn more <span aria-hidden="true">↗</span></a>
-              </article>
-            ))}
+          <div className="program-intro"><h2>Growth occurs<br /><em>in multiple directions.</em></h2><p>From a child opening their first book to a neighborhood planting its first community garden, every action matters.</p></div>
+          <div className="program-carousel" role="region" aria-roledescription="carousel" aria-label="Gracepath community outreach">
+            <div className="program-carousel-stage" aria-live="polite">
+              {programImages.map((image, index) => (
+                <figure className={index === currentProgramImage ? "program-carousel-slide is-active" : "program-carousel-slide"} aria-hidden={index !== currentProgramImage} key={image.src}>
+                  <Image className="program-carousel-backdrop" src={image.src} alt="" fill sizes="(max-width: 760px) 100vw, 1120px" />
+                  <Image className="program-carousel-image" src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 1120px" />
+                </figure>
+              ))}
+              <button className="carousel-arrow carousel-arrow--previous" type="button" onClick={showPreviousProgramImage} aria-label="Show previous image"><span aria-hidden="true">←</span></button>
+              <button className="carousel-arrow carousel-arrow--next" type="button" onClick={showNextProgramImage} aria-label="Show next image"><span aria-hidden="true">→</span></button>
+              <div className="carousel-counter" aria-hidden="true">{String(currentProgramImage + 1).padStart(2, "0")} / {String(programImages.length).padStart(2, "0")}</div>
+            </div>
+            <div className="carousel-dots" aria-label="Choose an image">
+              {programImages.map((image, index) => (
+                <button className={index === currentProgramImage ? "carousel-dot is-active" : "carousel-dot"} type="button" onClick={() => setCurrentProgramImage(index)} aria-label={`Show image ${index + 1} of ${programImages.length}`} aria-current={index === currentProgramImage ? "true" : undefined} key={image.src} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="approach section shell" id="approach">
         <div className="approach-grid">
-          <div className="approach-image"><Image src="/gracepath/community-story.jpg" alt="A community gathering in conversation" fill sizes="(max-width: 900px) 100vw, 45vw" /></div>
           <div className="approach-copy">
             <div className="section-kicker"><span>03</span><div /> Our approach</div>
             <h2>Work with people,<br /><em>not just for them.</em></h2>
@@ -189,6 +186,16 @@ export default function Home() {
               <div><span>01</span><p><strong>Listen deeply</strong> — We begin with lived experience.</p></div>
               <div><span>02</span><p><strong>Act together</strong> — We make progress a shared effort.</p></div>
               <div><span>03</span><p><strong>Stay for the long run</strong> — We measure success by what endures.</p></div>
+            </div>
+          </div>
+          <div className="mission-copy">
+            <div className="mission-block">
+              <h3 className="mission-label">Our vision</h3>
+              <p>A just, inclusive, and self-reliant society where every individual — regardless of background — lives with dignity, health, and purpose.</p>
+            </div>
+            <div className="mission-block">
+              <h3 className="mission-label">Our mission</h3>
+              <p>To uplift marginalized communities through holistic programs in education, health, livelihood, and environment — built on compassion and sustainable impact.</p>
             </div>
           </div>
         </div>
@@ -201,18 +208,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="support section shell" id="support">
-        <div className="support-card">
-          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Get involved</div><h2>There’s room<br />for <em>you</em> here.</h2><p>Whether you give your time, your skills, or a little support, you help build pathways to a more hopeful future.</p><a className="button button--dark" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com&amp;su=I%20want%20to%20support%20Gracepath" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a></div>
-          <div className="support-art"><div className="support-circle support-circle--back" /><div className="support-circle support-circle--front" /><div className="support-message">Bring<br /><em>what you can.</em></div><div className="support-sun" /></div>
+      <section className="support section shell" id="contact">
+        <div className="support-card contact-card">
+          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s start a<br /><em>conversation.</em></h2><p>Tell us how you would like to connect with Gracepath. Our team will receive your message directly and reply using the details you provide.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
+          <div className="contact-form-wrap">
+            <form className="contact-form" onSubmit={submitContactForm}>
+              <div className="contact-form-row">
+                <label>Name<input name="name" type="text" autoComplete="name" maxLength={100} required /></label>
+                <label>Email<input name="email" type="email" autoComplete="email" maxLength={160} required /></label>
+              </div>
+              <div className="contact-form-row">
+                <label>Phone <span>Optional</span><input name="phone" type="tel" autoComplete="tel" maxLength={30} /></label>
+                <label>Reason for contacting us<select name="inquiryType" defaultValue="" required><option value="" disabled>Select one</option><option value="Request support">Request support</option><option value="Volunteer">Volunteer</option><option value="Donate">Donate</option><option value="Partnership">Partnership</option><option value="General inquiry">General inquiry</option></select></label>
+              </div>
+              <label>Message<textarea name="message" rows={6} minLength={10} maxLength={3000} required /></label>
+              <div className="contact-form-footer">
+                <button className="button button--dark" type="submit">Send message<span aria-hidden="true">↗</span></button>
+                <p className="contact-status" role="status" aria-live="polite">{gmailDraftOpened ? "Your draft is open in Gmail. Review it and press Send to finish." : "You’ll review your message in Gmail before sending."}</p>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
-      <footer className="footer" id="contact">
+      <footer className="footer">
         <div className="shell footer-top">
-          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></a><p>Empowering lives,<br />enriching communities.</p></div>
-          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919825011579">+91-98250-11579</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com" target="_blank" rel="noopener noreferrer">gracepathdevelopmentfoundation@gmail.com</a></div>
-          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#support">Get involved</a></div>
+          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
+          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
+          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala <span aria-hidden="true">♥</span></span></div>
       </footer>

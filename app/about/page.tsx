@@ -9,6 +9,11 @@ type Leader = {
   featured?: boolean;
 };
 
+type Patron = {
+  name: string;
+  image: string;
+};
+
 const leadership: Leader[] = [
   {
     name: "Gino Sebastian",
@@ -46,22 +51,12 @@ const leadership: Leader[] = [
   {
     name: "Alan Joy",
     role: "Program Coordinator",
-    image: "/gracepath/leaders/portrait-im8.png",
+    image: "/gracepath/leaders/potrait-im8.jpg",
     bio: [
       "Mr. Alan Joy is a dedicated social work professional, youth advocate, and community organizer driven by a lifelong passion for social service and human empowerment. Holding a Master's degree in Social Work (MSW), he combines professional methodologies with a strong, hands-on commitment to community development.",
       "During his academic career, Alan distinguished himself as an energetic student and university-level youth leader. His leadership, discipline, and commitment to service were further sharpened through his selection and participation in national-level camps of the National Cadet Corps (NCC). These experiences built a strong foundation in team leadership, civic responsibility, and strategic event management.",
       "Alan brings valuable practical exposure to his role, having completed intensive field associations with esteemed institutions including St. John's National Academy of Health Sciences (Bengaluru), Louismount Hospital & Rehabilitation Centre (Wayanad), and ADART (Pala). Through these real-world engagements, he gained deep experience in medical and psychiatric social work, community health, rural development, and social action frameworks.",
       "As Program Coordinator at the Gracepath Development Foundation, Alan leverages his vibrant personality, youth connect, and field expertise to design, coordinate, and execute community outreach programs. His energetic leadership brings vitality and structure to Gracepath's initiatives, effectively bridging grassroots needs with impactful organizational programs.",
-    ],
-  },
-  {
-    name: "Thresiamma John",
-    role: "Patron & Spiritual Guide",
-    image: "/gracepath/leaders/portrait-im2.png",
-    bio: [
-      "Mrs. Thresiamma John is a veteran social worker, community organizer, and our inspiration. Having dedicated decades of her life to social welfare, women's empowerment, and grassroots community development, her living example of selfless service, deep faith, and unconditional compassion has been the guiding spark for Gracepath's mission.",
-      "Throughout her many years of active social work, she has championed initiatives focused on uplifting women, strengthening families, and serving vulnerable populations. Her work is rooted in a profound spiritual foundation, bringing genuine empathy, grace, and hope to every life she touches.",
-      "As Patron & Spiritual Guide of Gracepath Development Foundation, she serves as the moral compass and spiritual anchor of the organization. Her lifelong dedication to humanity inspires the foundation's leadership, staff, and volunteers, ensuring that every project and outreach effort is conducted with love, integrity, and deep compassion for society.",
     ],
   },
   {
@@ -86,6 +81,17 @@ const leadership: Leader[] = [
   },
 ];
 
+const patrons: Patron[] = [
+  {
+    name: "Mrs. Mary Sebastian",
+    image: "/gracepath/leaders/portrait-im2.png",
+  },
+  {
+    name: "Mrs. Thresiamma John",
+    image: "/gracepath/leaders/patron-new.png",
+  },
+];
+
 function LeaderCard({ leader }: { leader: Leader }) {
   return (
     <article className={leader.featured ? "leader-card leader-card--featured" : "leader-card"}>
@@ -101,16 +107,39 @@ function LeaderCard({ leader }: { leader: Leader }) {
   );
 }
 
+function PatronFeature() {
+  return (
+    <div className="patron-feature">
+      <div className="patron-portraits">
+        {patrons.map((patron) => (
+          <figure className="patron-portrait" key={patron.image}>
+            <div className="patron-photo">
+              <Image src={patron.image} alt={patron.name} fill sizes="(max-width: 640px) 100vw, 42vw" />
+            </div>
+            <figcaption>
+              <strong>{patron.name}</strong>
+              <span>Patron</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div className="patron-description">
+        <p>At Gracepath Development Foundation, our mission is anchored in the timeless values of selfless service, compassion, and spiritual guidance passed down by our revered Patrons, Mrs. Mary Sebastian and Mrs. Thresiamma John. As the true driving force behind our organization, their lives of quiet sacrifice, unwavering faith, and generosity have served as our constant inspiration. By teaching us the vital importance of giving back to the society, uplifting the poor, and extending a helping hand to those in need, their enduring legacy forms the guiding foundation for all our efforts to transform lives and serve the society.</p>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   const featured = leadership.slice(0, 4);
   const advisors = leadership.slice(4);
 
   return (
     <main className="about-page">
-      <div className="topline"><div className="shell topline-inner"><span>Grassroots action for a more just, inclusive India.</span><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com&amp;su=Hello%20Gracepath" target="_blank" rel="noopener noreferrer">Write to us -&gt;</a></div></div>
-      <header className="site-header"><div className="shell nav-wrap"><Link className="brand" href="/" aria-label="Gracepath Development Foundation home"><span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo.png" alt="Gracepath Development Foundation" fill sizes="180px" /></span></Link><nav className="main-nav about-nav" aria-label="Main navigation"><Link className="about-nav-active" href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact</Link><Link className="nav-cta" href="/#support">Support our work -&gt;</Link></nav></div></header>
+      <div className="topline"><div className="shell topline-inner"><span>Grassroot Actions for a more just and inclusive India</span><Link href="/#contact">Write to us ↓</Link></div></div>
+      <header className="site-header"><div className="shell nav-wrap"><Link className="brand" href="/" aria-label="Gracepath Development Foundation home"><span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="180px" /></span></Link><nav className="main-nav about-nav" aria-label="Main navigation"><Link className="about-nav-active" href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact</Link><Link className="nav-cta" href="/#contact">Contact us ↓</Link></nav></div></header>
 
-      <section className="about-hero"><div className="shell about-hero-grid"><div><p className="eyebrow"><span className="eyebrow-line" /> About Gracepath</p><h1>People make<br /><em>the path.</em></h1></div><div className="about-hero-copy"><p>Gracepath Development Foundation is built on a simple belief: lasting change grows when people are seen, heard, and supported to shape their own future.</p><div className="about-hero-meta"><span>Leadership matrix</span><span>01 - 07</span></div></div></div><div className="about-hero-shape about-hero-shape--one" /><div className="about-hero-shape about-hero-shape--two" /><div className="about-hero-sun" /></section>
+      <section className="about-hero"><div className="shell about-hero-grid"><div><p className="eyebrow"><span className="eyebrow-line" /> About Gracepath</p><h1>People make<br /><em>the path.</em></h1></div><div className="about-hero-copy"><p>Gracepath Development Foundation is built on a simple belief: lasting change grows when people are seen, heard, and supported to shape their own future.</p><div className="about-hero-meta"><span>Leadership matrix</span><span>01 - 08</span></div></div></div><div className="about-hero-shape about-hero-shape--one" /><div className="about-hero-shape about-hero-shape--two" /><div className="about-hero-sun" /></section>
 
       <section className="about-story section shell"><div className="section-kicker"><span>01</span><div /> Our story</div><div className="about-story-grid"><h2>A foundation with<br /><em>heart at the centre.</em></h2><div><p className="lead">We work across education, healthcare, environment, livelihoods, and community development - forging partnerships that turn care into meaningful, ground-level action.</p><p>Our leadership brings together social work, healthcare, mental health, public service, entrepreneurship, and community organizing. Different experiences, one shared commitment: to uplift marginalized communities with dignity, compassion, and purpose.</p></div></div></section>
 
@@ -118,9 +147,11 @@ export default function AboutPage() {
 
       <section className="advisors section shell"><div className="advisors-heading"><div className="section-kicker"><span>03</span><div /> Advisory circle</div><p>Experience that keeps our mission grounded, thoughtful, and accountable.</p></div><div className="advisors-grid">{advisors.map((leader) => <LeaderCard key={leader.name} leader={leader} />)}</div></section>
 
-      <section className="mission-band"><div className="shell mission-grid"><div><p className="eyebrow eyebrow--light"><span className="eyebrow-line" /> What guides us</p><h2>Compassion in action.<br /><em>Progress with purpose.</em></h2></div><div className="mission-points"><div><span>Vision</span><p>A just, inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.</p></div><div><span>Mission</span><p>To uplift marginalized communities through holistic programs in education, health, livelihood, and environment - built on compassion and sustainable impact.</p></div></div></div></section>
+      <section className="patrons section"><div className="shell"><div className="patrons-heading"><div className="section-kicker"><span>04</span><div /> Our patrons</div><p>Grounded in the wisdom, care, and encouragement of those who stand with Gracepath.</p></div><PatronFeature /></div></section>
 
-      <footer className="footer" id="contact"><div className="shell footer-top"><div className="footer-brand"><Link className="brand brand--footer" href="/"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></Link><p>Empowering lives,<br />enriching communities.</p></div><div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala - 686581</address><a href="tel:+919825011579">+91-98250-11579</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gracepathdevelopmentfoundation@gmail.com" target="_blank" rel="noopener noreferrer">gracepathdevelopmentfoundation@gmail.com</a></div><div className="footer-nav"><p className="footer-label">Explore</p><Link href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#support">Get involved</Link></div></div><div className="shell footer-bottom"><span>Copyright {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala</span></div></footer>
+      <section className="mission-band"><div className="shell mission-grid"><div><p className="eyebrow eyebrow--light"><span className="eyebrow-line" /> What guides us</p><h2>Compassion in action.<br /><em>Progress with purpose.</em></h2></div><div className="mission-points"><div><span>Vision</span><p>An inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.</p></div><div><span>Mission</span><p>To uplift marginalized communities through holistic programs in education, health, livelihood, and environment - built on compassion and sustainable impact.</p></div></div></div></section>
+
+      <footer className="footer" id="contact"><div className="shell footer-top"><div className="footer-brand"><Link className="brand brand--footer" href="/"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></Link><p>Empowering Lives,<br />Enriching Communities.</p></div><div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala - 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div><div className="footer-nav"><p className="footer-label">Explore</p><Link href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact us</Link></div></div><div className="shell footer-bottom"><span>Copyright {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala</span></div></footer>
     </main>
   );
 }
