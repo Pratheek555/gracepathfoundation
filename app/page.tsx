@@ -76,7 +76,7 @@ export default function Home() {
       <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="#top" onClick={closeMenu} aria-label="Gracepath Development Foundation home">
-            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="180px" /></span>
+            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="200px" /></span>
           </a>
           <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
             <span /><span /><span />
@@ -116,7 +116,7 @@ export default function Home() {
               <div className="tree tree--right"><i /><i /><i /><i /></div>
               <div className="people"><b /><b /><b /><b /><b /></div>
             </div>
-            <div className="hero-stamp"><span>EST.</span><strong>2021</strong><small>Kerala, India</small></div>
+            <div className="hero-stamp"><span>EST.</span><strong>2026</strong><small>Kerala, India</small></div>
           </div>
         </div>
         <div className="hero-bottom shell">
@@ -189,6 +189,10 @@ export default function Home() {
             </div>
           </div>
           <div className="mission-copy">
+            <figure className="approach-image">
+              <Image src="/gracepath/approach-community-session.jpg" alt="Illustration of a woman leading a discussion with community members seated around her." fill sizes="(max-width: 900px) 100vw, 42vw" />
+              <figcaption>Shared learning and community-led priorities.</figcaption>
+            </figure>
             <div className="mission-block">
               <h3 className="mission-label">Our vision</h3>
               <p>A just, inclusive, and self-reliant society where every individual — regardless of background — lives with dignity, health, and purpose.</p>
@@ -197,6 +201,33 @@ export default function Home() {
               <h3 className="mission-label">Our mission</h3>
               <p>To uplift marginalized communities through holistic programs in education, health, livelihood, and environment — built on compassion and sustainable impact.</p>
             </div>
+          </div>
+        </div>
+        <div className="approach-details">
+          <div className="approach-details-heading">
+            <div>
+              <p className="section-kicker"><span /> How we put it into practice</p>
+              <h3>Support shaped around local priorities.</h3>
+            </div>
+            <p>Gracepath runs awareness programs, training, workshops, seminars, and campaigns. It works with government bodies, NGOs, trusts, institutions, and local stakeholders, and directs resources to marginalized and economically weaker communities through targeted initiatives.</p>
+          </div>
+          <div className="approach-focus-grid">
+            <article className="approach-focus-card">
+              <div className="approach-focus-visual approach-focus-visual--education"><Image src="/gracepath/approach-education.jpg" alt="Illustration of children learning with a community educator." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>01</span></div>
+              <div><h4>Education and skills</h4><p>Literacy and non-formal learning, dropout prevention and scholarships, plus vocational training, trade workshops, and career guidance.</p></div>
+            </article>
+            <article className="approach-focus-card">
+              <div className="approach-focus-visual"><Image src="/gracepath/approach-health.jpg" alt="Illustration of an older woman speaking with a health worker." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>02</span></div>
+              <div><h4>Health and wellbeing</h4><p>Medical camps, public health, hygiene and nutrition awareness, alongside community mental health education and emotional support for young people and families.</p></div>
+            </article>
+            <article className="approach-focus-card">
+              <div className="approach-focus-visual"><Image src="/gracepath/approach-livelihood.jpg" alt="Illustration of a woman tending crops in a field." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>03</span></div>
+              <div><h4>Livelihood and inclusion</h4><p>Income generation, microenterprise and financial literacy, women’s empowerment, child rights, and prevention of gender-based violence.</p></div>
+            </article>
+            <article className="approach-focus-card">
+              <div className="approach-focus-visual"><Image src="/gracepath/approach-environment.jpg" alt="Illustration of community members planting and caring for greenery." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>04</span></div>
+              <div><h4>Environment and resilience</h4><p>Sanitation, waste management, tree planting and water conservation, as well as disaster relief, recovery support, and rural development.</p></div>
+            </article>
           </div>
         </div>
       </section>
@@ -233,9 +264,9 @@ export default function Home() {
 
       <footer className="footer">
         <div className="shell footer-top">
-          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="220px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
+          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="240px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
           <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
-          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a></div>
+          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala <span aria-hidden="true">♥</span></span></div>
       </footer>
