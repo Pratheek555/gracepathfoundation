@@ -126,9 +126,11 @@ h1 em,h2 em { color:var(--teal); font-family:Fraunces,Georgia,serif; font-weight
 @media (max-width:640px) { .contact-form-wrap{padding:30px 24px}.contact-form-row{grid-template-columns:1fr}.contact-form-footer{align-items:flex-start;flex-direction:column;gap:13px}.contact-form-footer .button{width:100%;justify-content:space-between}.contact-direct{margin-top:26px} }
 
 /* Updated type scale and content layout */
-.nav-wrap { min-height:98px; }
-.logo-crop--nav { width:230px; height:68px; }
-.logo-crop--footer { width:275px; height:76px; }
+.nav-wrap { min-height:128px; }
+.logo-crop--nav,.logo-crop--footer { overflow:hidden; }
+.logo-crop--nav { width:290px; height:106px; }
+.logo-crop--nav img,.logo-crop--footer img { object-fit:cover; object-position:center; }
+.logo-crop--footer { width:330px; height:120px; }
 .main-nav { gap:28px; font-size:17px; }
 .nav-cta { font-size:15px; padding:15px 20px; }
 .eyebrow { font-size:14px; letter-spacing:.11em; }
@@ -154,16 +156,26 @@ h1 em,h2 em { color:var(--teal); font-family:Fraunces,Georgia,serif; font-weight
 .footer-contact>a { overflow-wrap:anywhere; }
 
 @media (max-width:900px) {
-  .main-nav { gap:17px; font-size:16px; }
+  .nav-wrap { min-height:98px; }
+  .logo-crop--nav { width:230px; height:84px; }
+  .main-nav { gap:9px; font-size:14px; }
+  .nav-cta { font-size:12px; gap:8px; padding:11px 12px; }
   .approach-focus-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .approach-focus-card { grid-template-columns:92px minmax(0,1fr); gap:16px; }
   .approach-focus-visual { width:92px; }
 }
 
-@media (max-width:640px) {
+@media (max-width:700px) and (min-width:641px) {
   .nav-wrap { min-height:82px; }
-  .logo-crop--nav { width:190px; height:57px; }
-  .main-nav { top:82px; }
+  .logo-crop--nav { width:200px; height:73px; }
+  .main-nav { gap:6px; font-size:12px; }
+  .nav-cta { font-size:11px; gap:6px; padding:10px 9px; }
+}
+
+@media (max-width:640px) {
+  .nav-wrap { min-height:96px; }
+  .logo-crop--nav { width:230px; height:84px; }
+  .main-nav { top:96px; }
   .main-nav a { font-size:16px; }
   .hero-copy h1 { font-size:clamp(47px,12vw,60px); }
   .eyebrow { font-size:12px; }
@@ -180,6 +192,7 @@ h1 em,h2 em { color:var(--teal); font-family:Fraunces,Georgia,serif; font-weight
   .approach-focus-card p { font-size:16px; }
   .footer-contact address { font-size:16px; }
   .footer-contact>a,.footer-nav>a { font-size:15px; }
+  .logo-crop--footer { width:330px; max-width:100%; height:min(120px,36vw); }
 }
 
 /* About page */
