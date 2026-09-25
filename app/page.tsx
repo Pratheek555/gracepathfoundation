@@ -28,9 +28,66 @@ const programImages = [
 ];
 
 const impact = [
-  ["6", "focus areas"],
+  ["9", "focus areas"],
   ["100%", "community-led"],
   ["1", "shared purpose"],
+];
+
+const services = [
+  {
+    title: "Healthcare & Community Wellness",
+    description: "Free medical camps, nutrition awareness and public health initiatives. Holistic empowerment programs designed to enhance the capabilities and independence of individuals with mental and physical disabilities. Community awareness initiatives to dismantle social stigma.",
+    image: "/gracepath/approach-health.jpg",
+    alt: "An older woman speaking with a health worker.",
+  },
+  {
+    title: "Skill Development",
+    description: "Vocational training, trade workshops, and career guidance that prepare youth for sustainable self-employment.",
+    image: "/gracepath/approach-education.jpg",
+    alt: "Children learning with a community educator.",
+  },
+  {
+    title: "Environmental Protection",
+    description: "Sanitation campaigns, waste management, tree plantation drives, and water conservation initiatives.",
+    image: "/gracepath/approach-environment.jpg",
+    alt: "Community members planting and caring for greenery.",
+  },
+  {
+    title: "Disaster Relief & Rehabilitation",
+    description: "Emergency aid distribution and post-disaster recovery support for affected communities.",
+    image: "/gracepath/programs/community-outreach-02.png",
+    alt: "Gracepath team members delivering essential supplies to a household in Kottayam.",
+  },
+  {
+    title: "Education Support",
+    description: "Literacy drives, non-formal learning, dropout prevention and scholarship assistance for underserved children and youth.",
+    image: "/gracepath/approach-education.jpg",
+    alt: "Children learning with a community educator.",
+  },
+  {
+    title: "Livelihood Enhancement",
+    description: "Income-generation programs, microenterprise support, and financial literacy training for economically weaker sections.",
+    image: "/gracepath/approach-livelihood.jpg",
+    alt: "A woman tending crops in a field.",
+  },
+  {
+    title: "Women Empowerment",
+    description: "Women’s empowerment programs, child rights awareness, and prevention of gender-based violence.",
+    image: "/gracepath/approach-community-session.jpg",
+    alt: "A community discussion led by a woman facilitator.",
+  },
+  {
+    title: "Community Development",
+    description: "Organize seminars and awareness programs by mobilizing people across rural and urban areas, empowering them to become self-reliant. Launch campaigns against the use of drugs that pose a major threat to today’s society, thereby protecting the younger generation.",
+    image: "/gracepath/programs/community-outreach-05.png",
+    alt: "Gracepath team members and community partners gathered together.",
+  },
+  {
+    title: "Mental Health Awareness",
+    description: "Community-based mental health education and emotional support initiatives for youth and families.",
+    image: "/gracepath/approach-health.jpg",
+    alt: "A health worker speaking with a community member.",
+  },
 ];
 
 export default function Home() {
@@ -76,7 +133,7 @@ export default function Home() {
       <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="#top" onClick={closeMenu} aria-label="Gracepath Development Foundation home">
-            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="200px" /></span>
+            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="(max-width: 640px) 190px, 230px" /></span>
           </a>
           <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
             <span /><span /><span />
@@ -95,13 +152,12 @@ export default function Home() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> A foundation for shared progress</p>
-            <h1>Small steps.<br /><em>Lasting change.</em></h1>
+            <h1>Empowering<br /><em>lives enriching<br />communities.</em></h1>
             <p className="hero-lede">We walk alongside to strengthen communities&apos; education, health, dignity and opportunity and make it part of their everyday life.</p>
             <div className="hero-actions">
               <a className="button button--dark" href="#contact">Contact us <span aria-hidden="true">↓</span></a>
               <a className="text-link" href="#programs">Explore our work <span aria-hidden="true">↓</span></a>
             </div>
-            <div className="hero-note"><span className="note-dot" /> Empowering Lives, Enriching Communities</div>
           </div>
           <div className="hero-art" aria-label="A community gathering representing Gracepath&apos;s work">
             <div className="art-orbit art-orbit--one" />
@@ -116,7 +172,6 @@ export default function Home() {
               <div className="tree tree--right"><i /><i /><i /><i /></div>
               <div className="people"><b /><b /><b /><b /><b /></div>
             </div>
-            <div className="hero-stamp"><span>EST.</span><strong>2026</strong><small>Kerala, India</small></div>
           </div>
         </div>
         <div className="hero-bottom shell">
@@ -133,17 +188,16 @@ export default function Home() {
         <div className="section-kicker"><span>01</span><div /> Who we are</div>
         <div className="about-grid">
           <div>
-            <h2>A little more <em>possibility</em> for everyone.</h2>
+            <h2>Towards an <em>empowered society.</em></h2>
             <p className="lead">Gracepath Development Foundation is a non-profit organization dedicated to creating lasting, positive change in the lives of underprivileged and marginalized communities.</p>
             <p>We work across education, healthcare, environment, livelihood, and community development — forging meaningful partnerships with government bodies, NGOs, and local stakeholders to deliver ground-level impact.</p>
             <a className="text-link text-link--teal" href="/about">Our story <span aria-hidden="true">↗</span></a>
           </div>
           <div className="about-visual">
-            <div className="visual-label">The work is in-depth.<br /><em>The hope is shared.</em></div>
+            <blockquote className="visual-label">“The future belongs to those who actively build it with hope, unity, and a shared purpose.”<cite>— Kofi Annan</cite></blockquote>
             <div className="visual-sun" />
             <div className="visual-path" />
             <div className="visual-leaf visual-leaf--one" /><div className="visual-leaf visual-leaf--two" /><div className="visual-leaf visual-leaf--three" />
-            <div className="visual-quote">“An inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.”</div>
           </div>
         </div>
       </section>
@@ -154,7 +208,7 @@ export default function Home() {
             <div className="section-kicker"><span>02</span><div /> What we do</div>
             <p>Appropriate programs designed specifically for each community&apos;s needs.</p>
           </div>
-          <div className="program-intro"><h2>Growth occurs<br /><em>in multiple directions.</em></h2><p>From a child opening their first book to a neighborhood planting its first community garden, every action matters.</p></div>
+          <div className="program-intro"><h2>Programs specific<br /><em>for every need.</em></h2></div>
           <div className="program-carousel" role="region" aria-roledescription="carousel" aria-label="Gracepath community outreach">
             <div className="program-carousel-stage" aria-live="polite">
               {programImages.map((image, index) => (
@@ -180,13 +234,8 @@ export default function Home() {
         <div className="approach-grid">
           <div className="approach-copy">
             <div className="section-kicker"><span>03</span><div /> Our approach</div>
-            <h2>Work with people,<br /><em>not just for them.</em></h2>
+            <h2>Towards a<br /><em>meaningful change.</em></h2>
             <p className="lead">Real change starts with listening. We partner with local communities to understand what matters most, build on what already exists, and create solutions that last.</p>
-            <div className="principles">
-              <div><span>01</span><p><strong>Listen deeply</strong> — We begin with lived experience.</p></div>
-              <div><span>02</span><p><strong>Act together</strong> — We make progress a shared effort.</p></div>
-              <div><span>03</span><p><strong>Stay for the long run</strong> — We measure success by what endures.</p></div>
-            </div>
           </div>
           <div className="mission-copy">
             <figure className="approach-image">
@@ -206,28 +255,18 @@ export default function Home() {
         <div className="approach-details">
           <div className="approach-details-heading">
             <div>
-              <p className="section-kicker"><span /> How we put it into practice</p>
+              <p className="section-kicker"><span /> From plan to action</p>
               <h3>Support shaped around local priorities.</h3>
             </div>
             <p>Gracepath runs awareness programs, training, workshops, seminars, and campaigns. It works with government bodies, NGOs, trusts, institutions, and local stakeholders, and directs resources to marginalized and economically weaker communities through targeted initiatives.</p>
           </div>
           <div className="approach-focus-grid">
-            <article className="approach-focus-card">
-              <div className="approach-focus-visual approach-focus-visual--education"><Image src="/gracepath/approach-education.jpg" alt="Illustration of children learning with a community educator." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>01</span></div>
-              <div><h4>Education and skills</h4><p>Literacy and non-formal learning, dropout prevention and scholarships, plus vocational training, trade workshops, and career guidance.</p></div>
-            </article>
-            <article className="approach-focus-card">
-              <div className="approach-focus-visual"><Image src="/gracepath/approach-health.jpg" alt="Illustration of an older woman speaking with a health worker." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>02</span></div>
-              <div><h4>Health and wellbeing</h4><p>Medical camps, public health, hygiene and nutrition awareness, alongside community mental health education and emotional support for young people and families.</p></div>
-            </article>
-            <article className="approach-focus-card">
-              <div className="approach-focus-visual"><Image src="/gracepath/approach-livelihood.jpg" alt="Illustration of a woman tending crops in a field." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>03</span></div>
-              <div><h4>Livelihood and inclusion</h4><p>Income generation, microenterprise and financial literacy, women’s empowerment, child rights, and prevention of gender-based violence.</p></div>
-            </article>
-            <article className="approach-focus-card">
-              <div className="approach-focus-visual"><Image src="/gracepath/approach-environment.jpg" alt="Illustration of community members planting and caring for greenery." width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>04</span></div>
-              <div><h4>Environment and resilience</h4><p>Sanitation, waste management, tree planting and water conservation, as well as disaster relief, recovery support, and rural development.</p></div>
-            </article>
+            {services.map((service, index) => (
+              <article className="approach-focus-card" key={service.title}>
+                <div className="approach-focus-visual"><Image src={service.image} alt={service.alt} width={300} height={300} sizes="(max-width: 640px) 84px, 112px" /><span>{String(index + 1).padStart(2, "0")}</span></div>
+                <div><h4>{service.title}</h4><p>{service.description}</p></div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -241,7 +280,7 @@ export default function Home() {
 
       <section className="support section shell" id="contact">
         <div className="support-card contact-card">
-          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s start a<br /><em>conversation.</em></h2><p>Tell us how you would like to connect with Gracepath. Our team will receive your message directly and reply using the details you provide.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
+          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Tell us how you would like to partner with Gracepath. Our team shall contact you promptly.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
           <div className="contact-form-wrap">
             <form className="contact-form" onSubmit={submitContactForm}>
               <div className="contact-form-row">
@@ -264,7 +303,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="shell footer-top">
-          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="240px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
+          <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="275px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
           <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
           <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div>
         </div>

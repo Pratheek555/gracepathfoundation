@@ -125,6 +125,63 @@ h1 em,h2 em { color:var(--teal); font-family:Fraunces,Georgia,serif; font-weight
 @media (max-width:900px) { .contact-form-wrap{padding:42px} }
 @media (max-width:640px) { .contact-form-wrap{padding:30px 24px}.contact-form-row{grid-template-columns:1fr}.contact-form-footer{align-items:flex-start;flex-direction:column;gap:13px}.contact-form-footer .button{width:100%;justify-content:space-between}.contact-direct{margin-top:26px} }
 
+/* Updated type scale and content layout */
+.nav-wrap { min-height:98px; }
+.logo-crop--nav { width:230px; height:68px; }
+.logo-crop--footer { width:275px; height:76px; }
+.main-nav { gap:28px; font-size:17px; }
+.nav-cta { font-size:15px; padding:15px 20px; }
+.eyebrow { font-size:14px; letter-spacing:.11em; }
+.hero-copy h1 { font-size:clamp(58px,6.2vw,78px); line-height:1; }
+.section-kicker { gap:16px; font-size:13px; }
+.section-kicker span { font-size:15px; }
+.section-kicker div { width:42px; }
+.about h2 { max-width:570px; }
+.visual-label { box-sizing:border-box; width:calc(100% - 72px); max-width:620px; margin:0; font-family:'DM Sans',Arial,sans-serif; font-size:clamp(18px,1.7vw,23px); font-weight:600; line-height:1.38; }
+.visual-label cite { display:block; margin-top:15px; color:var(--teal-deep); font-size:15px; font-style:normal; font-weight:700; }
+.program-intro { display:block; }
+.program-intro h2 { max-width:740px; }
+.approach-copy h2 { max-width:610px; }
+.approach-copy p.lead { max-width:560px; font-size:clamp(18px,1.55vw,21px); line-height:1.68; }
+.approach-focus-card h4 { font-size:20px; line-height:1.2; }
+.approach-focus-card p { font-size:16px; line-height:1.7; }
+.contact-direct a { font-size:16px; }
+.support-copy>p { font-size:17px; }
+.footer-brand>p { font-size:26px; }
+.footer-label { font-size:12px; }
+.footer-contact address { font-size:16px; }
+.footer-contact>a,.footer-nav>a { font-size:15px; }
+.footer-contact>a { overflow-wrap:anywhere; }
+
+@media (max-width:900px) {
+  .main-nav { gap:17px; font-size:16px; }
+  .approach-focus-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .approach-focus-card { grid-template-columns:92px minmax(0,1fr); gap:16px; }
+  .approach-focus-visual { width:92px; }
+}
+
+@media (max-width:640px) {
+  .nav-wrap { min-height:82px; }
+  .logo-crop--nav { width:190px; height:57px; }
+  .main-nav { top:82px; }
+  .main-nav a { font-size:16px; }
+  .hero-copy h1 { font-size:clamp(47px,12vw,60px); }
+  .eyebrow { font-size:12px; }
+  .section-kicker { font-size:12px; gap:12px; }
+  .section-kicker span { font-size:14px; }
+  .section-kicker div { width:28px; }
+  .visual-label { width:calc(100% - 42px); left:21px; top:25px; font-size:18px; }
+  .visual-label cite { font-size:14px; }
+  .program-intro h2 { font-size:43px; }
+  .approach-focus-grid { grid-template-columns:1fr; }
+  .approach-focus-card { grid-template-columns:84px minmax(0,1fr); }
+  .approach-focus-visual { width:84px; }
+  .approach-focus-card h4 { font-size:18px; }
+  .approach-focus-card p { font-size:16px; }
+  .footer-contact address { font-size:16px; }
+  .footer-contact>a,.footer-nav>a { font-size:15px; }
+}
+
 /* About page */
 .about-page { background:#fffdf8; color:#1b302e; }
 .about-page h1,.about-page h2,.about-page h3 { letter-spacing:-.038em; line-height:1.04; text-wrap:balance; }
@@ -206,3 +263,12 @@ h1 em,h2 em { color:var(--teal); font-family:Fraunces,Georgia,serif; font-weight
 .about-cta-card>div:last-child p { color:#66736e; font-size:16px; line-height:1.7; max-width:390px; margin-bottom:28px; }
 @media (max-width:900px) { .about-hero-grid,.about-story-grid,.leadership-heading,.advisors-heading,.patrons-heading,.mission-grid{grid-template-columns:1fr;gap:42px}.about-hero-copy{padding-bottom:0}.about-hero{min-height:0}.about-hero-sun{right:125px}.leadership-heading>p,.advisors-heading>p,.patrons-heading>p{margin:0;max-width:620px}.leader-card{grid-template-columns:minmax(190px,250px) minmax(0,1fr)}.leader-content,.leader-card--featured .leader-content{padding:32px}.mission-grid{gap:55px}.about-cta-card{gap:40px;padding:48px 40px} }
 @media (max-width:640px) { .about-hero{padding:65px 0 58px}.about-hero h1{font-size:56px;margin-top:29px}.about-hero-copy>p{font-size:17px}.about-hero-meta{margin-top:34px;display:block;line-height:1.9}.about-hero-shape--one{width:330px;height:330px;right:-165px;top:165px}.about-hero-shape--two{width:240px;height:240px;right:-75px;top:210px}.about-hero-sun{width:95px;height:95px;right:8px;top:283px}.about-story,.leadership,.advisors,.patrons{padding-top:82px;padding-bottom:84px}.about-story-grid{padding-top:35px;gap:32px}.about-story h2,.leadership-heading h2{font-size:43px}.about-story-grid p.lead{font-size:16.5px}.about-story-grid p{font-size:15px}.leadership-heading{margin-bottom:36px}.leader-card{grid-template-columns:1fr}.leader-photo,.leader-card--featured .leader-photo{width:auto;aspect-ratio:4 / 3;height:auto;min-height:0;margin:24px 24px 0}.leader-content,.leader-card--featured .leader-content{padding:27px 24px 30px}.leader-content h3,.leader-card:not(.leader-card--featured) .leader-content h3{font-size:27px}.leader-bio p,.leader-card--featured .leader-bio p{font-size:14.5px;line-height:1.72}.advisors-heading,.patrons-heading{margin-bottom:32px}.patron-portraits{grid-template-columns:1fr;gap:18px;padding:20px 20px 0}.patron-photo{aspect-ratio:4 / 3}.patron-portrait figcaption{padding-top:12px}.patron-portrait figcaption strong{font-size:21px}.patron-description{margin:24px 20px;padding-top:24px}.patron-description p{font-size:16px;line-height:1.72}.mission-band{padding:78px 0}.mission-band h2{font-size:48px}.mission-points{grid-template-columns:1fr;gap:28px}.about-cta{padding-top:75px;padding-bottom:75px}.about-cta-card{grid-template-columns:1fr;gap:35px;padding:36px 26px}.about-cta-card h2{font-size:43px}.about-cta-card>div:last-child{display:block} }
+
+.about-hero h1 { font-size:clamp(58px,6.2vw,78px); line-height:1.02; }
+.about-story .section-kicker,.leadership-heading .section-kicker,.advisors-heading .section-kicker,.patrons-heading .section-kicker { font-size:14px; }
+.about-story .section-kicker span,.leadership-heading .section-kicker span,.advisors-heading .section-kicker span,.patrons-heading .section-kicker span { font-size:16px; }
+@media (max-width:640px) {
+  .about-hero h1 { font-size:48px; }
+  .about-story .section-kicker,.leadership-heading .section-kicker,.advisors-heading .section-kicker,.patrons-heading .section-kicker { font-size:12px; }
+  .about-story .section-kicker span,.leadership-heading .section-kicker span,.advisors-heading .section-kicker span,.patrons-heading .section-kicker span { font-size:14px; }
+}
