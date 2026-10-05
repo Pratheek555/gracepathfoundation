@@ -143,7 +143,7 @@ export default function Home() {
             <a href="#programs" onClick={closeMenu}>What we do</a>
             <a href="#approach" onClick={closeMenu}>Our approach</a>
             <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-cta" href="#contact" onClick={closeMenu}>Contact us <span aria-hidden="true">↓</span></a>
+            <a className="nav-cta" href="/donate" onClick={closeMenu}>Donate <span aria-hidden="true">↗</span></a>
           </nav>
         </div>
       </header>
@@ -152,7 +152,7 @@ export default function Home() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> A foundation for shared progress</p>
-            <h1>Empowering<br /><em>lives enriching<br />communities.</em></h1>
+            <h1><span className="hero-title-line">Empowering lives,</span><em>Enriching communities.</em></h1>
             <p className="hero-lede">We walk alongside to strengthen communities&apos; education, health, dignity and opportunity and make it part of their everyday life.</p>
             <div className="hero-actions">
               <a className="button button--dark" href="#contact">Contact us <span aria-hidden="true">↓</span></a>
@@ -280,7 +280,7 @@ export default function Home() {
 
       <section className="support section shell" id="contact">
         <div className="support-card contact-card">
-          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Tell us how you would like to partner with Gracepath. Our team shall contact you promptly.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
+          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Your partnership with Gracepath will amplify our reach in Enriching Lives and Empowering Communities.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
           <div className="contact-form-wrap">
             <form className="contact-form" onSubmit={submitContactForm}>
               <div className="contact-form-row">
@@ -305,7 +305,7 @@ export default function Home() {
         <div className="shell footer-top">
           <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="330px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
           <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
-          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div>
+          <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a><a href="/donate">Donate</a><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala <span aria-hidden="true">♥</span></span></div>
       </footer>

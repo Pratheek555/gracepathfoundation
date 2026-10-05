@@ -21,9 +21,8 @@ const leadership: Leader[] = [
     image: "/gracepath/leaders/portrait-im5.png",
     featured: true,
     bio: [
-      "Mr. Gino Sebastian is an executive leader and corporate director with over two decades of multifaceted experience across different functions.",
-      "Gino has established a reputation for driving operational excellence, building resilient systems and practices, and establishing collaborative institutional relationships. His cross-functional expertise spans large-scale project management, workforce development, and strategic corporate governance. Recognized for his strategic vision, he was honored by EQ Magazine as Top 50 under 50 Renewable Energy Leaders in India.",
-      "During his corporate career, Gino has authored and implemented robust corporate policy frameworks—including the \"Collective Discipline\" HR framework—ensuring 100% compliance with local and international labor laws. As the primary point of contact for high-level government negotiations, he bridges corporate governance with regulatory alignment. In addition to his corporate achievements, he brings a long-standing commitment to social welfare, having dedicated two years to supporting the HIV/AIDS Prevention & Advocacy initiatives of the Bill & Melinda Gates Foundation.",
+      "Mr. Gino Sebastian is an executive leader and corporate director with over two decades of multifaceted experience across different functions. As a Wholetime Director at Arctech Solar India, he plays a pivotal role in shaping operational strategy, navigating complex regulatory landscapes, and driving scalable growth.",
+      "Throughout his 20+ year career, Gino has established a reputation for driving operational excellence, building resilient systems and practices, and establishing collaborative institutional relationships. His cross-functional expertise spans large-scale project management, workforce development, and strategic corporate governance.",
       "As Chairman of the Gracepath Development Foundation, Gino brings his executive vision, strategic acumen, and deep-rooted commitment to social impact to the forefront of the organization's mission. Driven by a passion for social equity and community empowerment, his leadership serves as a guiding beacon for Gracepath's initiatives aimed at uplifting marginalized populations, fostering sustainable development, and creating long-term positive change across society.",
     ],
   },
@@ -34,7 +33,7 @@ const leadership: Leader[] = [
     bio: [
       "Mrs. Johnsy Gino is a dynamic leader whose career spans clinical healthcare, creative entrepreneurship, and dedicated public service. With over 15 years of experience as a Registered Nurse, she served in leading hospitals across Andhra Pradesh, Delhi, and Gujarat, establishing a strong foundation in patient care, empathy, and community health.",
       "Driven by a passion for design and business, Johnsy transitioned into entrepreneurship by formalizing her training as a professional Fashion Designer. She successfully founded and manages Ambi's Studio and Ambi's Atelier, a premier fashion studio and designer house. As a successful business owner, she has built a reputation for creative excellence and executive leadership.",
-      "Her deep commitment to social welfare led her into active public governance. She currently leads local initiatives focused on community development, social security, and empowering marginalized families.",
+      "Her deep commitment to social welfare led her into active public governance. She currently serves as an Elected Member of the Poonjar Grama Panchayath and holds the position of Chairperson of the Welfare Standing Committee, where she leads local initiatives focused on community development, social security, and empowering marginalized families.",
       "As Vice Chairperson of the Gracepath Development Foundation, Johnsy brings her compassionate healthcare background, executive leadership, and public service experience to the core of the foundation. Her heartfelt dedication to uplifting the underprivileged serves as a constant source of inspiration and vitality for Gracepath's social and humanitarian endeavors.",
     ],
   },
@@ -72,7 +71,7 @@ const leadership: Leader[] = [
   },
   {
     name: "Dr. Panchami Thomas",
-    role: "Advisor: Health & Clinical Affairs",
+    role: "Advisor - Health & Clinical Affairs",
     image: "/gracepath/leaders/portrait-im4.png",
     bio: [
       "Dr. Panchami Thomas, DNP, PMHNP-BC, is a healthcare leader, advanced practice clinician, and mental health advocate. She holds a Doctor of Nursing Practice from the University of South Alabama and is a board-certified Psychiatric Mental Health Nurse Practitioner with extensive expertise across inpatient, outpatient, and community care settings.",
@@ -125,7 +124,7 @@ function PatronFeature() {
         ))}
       </div>
       <div className="patron-description">
-        <p>At Gracepath Development Foundation, our mission is anchored in the timeless values of selfless service, compassion, and spiritual guidance passed down by our revered Patrons, Mrs. Thresiamma John and Mrs. Mary Sebastian. As the true driving force behind our organization, their lives of quiet sacrifice, unwavering faith, and generosity have served as our constant inspiration. Their enduring legacy forms the guiding foundation for all our efforts to transform lives and serve the society.</p>
+        <p>At Gracepath Development Foundation, our mission is anchored in the timeless values of selfless service, compassion, and spiritual guidance passed down by our revered Patrons, Mrs. Mary Sebastian and Mrs. Thresiamma John. As the true driving force behind our organization, their lives of quiet sacrifice, unwavering faith, and generosity have served as our constant inspiration. By teaching us the vital importance of giving back to the society, uplifting the poor, and extending a helping hand to those in need, their enduring legacy forms the guiding foundation for all our efforts to transform lives and serve the society.</p>
       </div>
     </div>
   );
