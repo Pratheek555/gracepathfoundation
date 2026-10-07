@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title description">
+  <title id="title">A golden heart held in caring hands</title>
+  <desc id="description">Two open mint-green hands gently cup a warm golden heart on a deep teal rounded square.</desc>
+  <defs>
+    <linearGradient id="background" x1="76" y1="56" x2="650" y2="686" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0e746e"/>
+      <stop offset="1" stop-color="#064b4a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(355 248) rotate(90) scale(315)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#54b4a5" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#0b5b57" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heart" x1="283" y1="164" x2="442" y2="418" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe08a"/>
+      <stop offset=".48" stop-color="#f6bd3d"/>
+      <stop offset="1" stop-color="#d89019"/>
+    </linearGradient>
+    <linearGradient id="leftHand" x1="130" y1="370" x2="372" y2="611" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ccefc6"/>
+      <stop offset="1" stop-color="#78bd9d"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#043d3b" flood-opacity=".34"/>
+    </filter>
+    <filter id="heartShadow" x="-35%" y="-30%" width="170%" height="190%">
+      <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#332008" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="696" height="696" rx="112" fill="url(#background)"/>
+  <rect x="28" y="28" width="664" height="664" rx="96" fill="none" stroke="#b7e8d6" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="360" cy="310" r="274" fill="url(#glow)"/>
+  <path d="M101 206c55-80 140-128 236-139" fill="none" stroke="#d7f5e8" stroke-opacity=".17" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="582" cy="143" r="9" fill="#f8d46b" fill-opacity=".72"/>
+  <circle cx="611" cy="178" r="4" fill="#d7f5e8" fill-opacity=".76"/>
+  <path d="M360 438c-23-22-121-107-138-168-17-63 22-118 83-118 34 0 54 17 69 42 15-25 36-42 69-42 61 0 100 55 83 118-17 61-115 146-138 168-8 8-20 8-28 0Z" fill="url(#heart)" filter="url(#heartShadow)"/>
+  <path d="M278 190c27-24 63-18 83 9" fill="none" stroke="#fff8d7" stroke-opacity=".68" stroke-width="17" stroke-linecap="round"/>
+  <g filter="url(#shadow)">
+    <path id="openHand" d="M215 696l-2-54c-1-16-9-30-23-43l-38-34c-24-22-41-50-49-82L80 380c-4-17 1-29 13-32 13-3 23 6 29 24l34 96c9 26 28 48 53 59l20 9-49-61c-12-15-12-27-3-34 10-8 22-5 35 8l63 66c30 31 47 64 47 104v77Z" fill="url(#leftHand)"/>
+    <use href="#openHand" transform="translate(720 0) scale(-1 1)"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path id="handLight" d="M98 366l35 109c9 30 25 50 48 65" stroke="#efffe9" stroke-opacity=".5" stroke-width="9"/>
+    <use href="#handLight" transform="translate(720 0) scale(-1 1)"/>
+    <path id="palmLine" d="M227 562c24 11 40 31 45 57" stroke="#4f9c83" stroke-opacity=".4" stroke-width="5"/>
+    <use href="#palmLine" transform="translate(720 0) scale(-1 1)"/>
+  </g>
+</svg>

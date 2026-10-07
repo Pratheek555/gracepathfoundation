@@ -159,19 +159,19 @@ export default function Home() {
               <a className="text-link" href="#programs">Explore our work <span aria-hidden="true">↓</span></a>
             </div>
           </div>
-          <div className="hero-art" aria-label="A community gathering representing Gracepath&apos;s work">
+          <div className="hero-art">
             <div className="art-orbit art-orbit--one" />
             <div className="art-orbit art-orbit--two" />
             <div className="art-card art-card--green"><strong>Listen<br />first.</strong></div>
             <div className="art-card art-card--orange"><strong>Grow<br />together.</strong></div>
-            <div className="art-illustration">
-              <div className="sun" />
-              <div className="hill hill--back" />
-              <div className="hill hill--front" />
-              <div className="tree tree--left"><i /><i /><i /></div>
-              <div className="tree tree--right"><i /><i /><i /><i /></div>
-              <div className="people"><b /><b /><b /><b /><b /></div>
-            </div>
+            <Image
+              className="hero-illustration"
+              src="/gracepath/care-heart.svg"
+              alt="A golden heart held gently in two open mint-green hands"
+              width={720}
+              height={720}
+              loading="eager"
+            />
           </div>
         </div>
         <div className="hero-bottom shell">
@@ -282,18 +282,22 @@ export default function Home() {
         <div className="support-card contact-card">
           <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Your partnership with Gracepath will amplify our reach in Enriching Lives and Empowering Communities.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
           <div className="contact-form-wrap">
-            <form className="contact-form" onSubmit={submitContactForm}>
-              <div className="contact-form-row">
-                <label>Name<input name="name" type="text" autoComplete="name" maxLength={100} required /></label>
-                <label>Email<input name="email" type="email" autoComplete="email" maxLength={160} required /></label>
+            <form className="contact-form" onSubmit={submitContactForm} aria-labelledby="contact-form-title">
+              <div className="contact-form-intro">
+                <h3 id="contact-form-title">Start a conversation</h3>
+                <p>Tell us what brings you here, and we’ll open a Gmail draft for you to review.</p>
               </div>
               <div className="contact-form-row">
-                <label>Phone <span>Optional</span><input name="phone" type="tel" autoComplete="tel" maxLength={30} /></label>
-                <label>Reason for contacting us<select name="inquiryType" defaultValue="" required><option value="" disabled>Select one</option><option value="Request support">Request support</option><option value="Volunteer">Volunteer</option><option value="Donate">Donate</option><option value="Partnership">Partnership</option><option value="General inquiry">General inquiry</option></select></label>
+                <label><span className="contact-field-label">Name</span><input name="name" type="text" autoComplete="name" maxLength={100} placeholder="Your name" required /></label>
+                <label><span className="contact-field-label">Email</span><input name="email" type="email" autoComplete="email" maxLength={160} placeholder="you@example.com" required /></label>
               </div>
-              <label>Message<textarea name="message" rows={6} minLength={10} maxLength={3000} required /></label>
+              <div className="contact-form-row">
+                <label><span className="contact-field-label">Phone <span className="contact-optional">Optional</span></span><input name="phone" type="tel" autoComplete="tel" maxLength={30} placeholder="Your phone number" /></label>
+                <label><span className="contact-field-label">Reason for contacting us</span><select name="inquiryType" defaultValue="" required><option value="" disabled>Select one</option><option value="Request support">Request support</option><option value="Volunteer">Volunteer</option><option value="Donate">Donate</option><option value="Partnership">Partnership</option><option value="General inquiry">General inquiry</option></select></label>
+              </div>
+              <label><span className="contact-field-label">Message</span><textarea name="message" rows={6} minLength={10} maxLength={3000} placeholder="How can Gracepath help?" required /></label>
               <div className="contact-form-footer">
-                <button className="button button--dark" type="submit">Send message<span aria-hidden="true">↗</span></button>
+                <button className="button button--dark" type="submit">Open Gmail draft<span aria-hidden="true">↗</span></button>
                 <p className="contact-status" role="status" aria-live="polite">{gmailDraftOpened ? "Your draft is open in Gmail. Review it and press Send to finish." : "You’ll review your message in Gmail before sending."}</p>
               </div>
             </form>
