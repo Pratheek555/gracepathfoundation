@@ -12,7 +12,7 @@ const bankDetails = [
   { label: "SWIFT code", value: "SOININ55" },
 ];
 
-const teamEmail = "gracepathdevelopmentfoundation@gmail.com";
+const teamEmail = "info@gracepathfoundation.com";
 
 export function BankDetails() {
   const [copyMessage, setCopyMessage] = useState("");

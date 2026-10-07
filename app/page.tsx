@@ -112,7 +112,7 @@ export default function Home() {
     const gmailParameters = new URLSearchParams({
       view: "cm",
       fs: "1",
-      to: "gracepathdevelopmentfoundation@gmail.com",
+      to: "info@gracepathfoundation.com",
       su: subject,
       body,
     });
@@ -162,8 +162,6 @@ export default function Home() {
           <div className="hero-art">
             <div className="art-orbit art-orbit--one" />
             <div className="art-orbit art-orbit--two" />
-            <div className="art-card art-card--green"><strong>Listen<br />first.</strong></div>
-            <div className="art-card art-card--orange"><strong>Grow<br />together.</strong></div>
             <Image
               className="hero-illustration"
               src="/gracepath/care-heart.svg"
@@ -280,7 +278,7 @@ export default function Home() {
 
       <section className="support section shell" id="contact">
         <div className="support-card contact-card">
-          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Your partnership with Gracepath will amplify our reach in Enriching Lives and Empowering Communities.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div></div>
+          <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Your partnership with Gracepath will amplify our reach in Enriching Lives and Empowering Communities.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:info@gracepathfoundation.com">info@gracepathfoundation.com</a></div></div>
           <div className="contact-form-wrap">
             <form className="contact-form" onSubmit={submitContactForm} aria-labelledby="contact-form-title">
               <div className="contact-form-intro">
@@ -308,7 +306,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-top">
           <div className="footer-brand"><a className="brand brand--footer" href="#top"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="330px" /></span></a><p>Empowering Lives,<br />Enriching Communities.</p></div>
-          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div>
+          <div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:info@gracepathfoundation.com">info@gracepathfoundation.com</a></div>
           <div className="footer-nav"><p className="footer-label">Explore</p><a href="/about">About us</a><a href="#programs">What we do</a><a href="#approach">Our approach</a><a href="#contact">Contact us</a><a href="/donate">Donate</a><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div>
         </div>
         <div className="shell footer-bottom"><span>© {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala <span aria-hidden="true">♥</span></span></div>

@@ -89,7 +89,7 @@ const patrons: Patron[] = [
   },
   {
     name: "Mrs. Mary Sebastian",
-    image: "/gracepath/leaders/patron-new.png",
+    image: "/gracepath/leaders/patron-new.jpg",
   },
 ];
 
@@ -152,7 +152,7 @@ export default function AboutPage() {
 
       <section className="mission-band"><div className="shell mission-grid"><div><p className="eyebrow eyebrow--light"><span className="eyebrow-line" /> What guides us</p><h2>Compassion in action.<br /><em>Progress with purpose.</em></h2></div><div className="mission-points"><div><span>Vision</span><p>An inclusive, and self-reliant society where every individual lives with dignity, health, and purpose.</p></div><div><span>Mission</span><p>To uplift marginalized communities through holistic programs in education, health, livelihood, and environment - built on compassion and sustainable impact.</p></div></div></div></section>
 
-      <footer className="footer" id="contact"><div className="shell footer-top"><div className="footer-brand"><Link className="brand brand--footer" href="/"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="330px" /></span></Link><p>Empowering Lives,<br />Enriching Communities.</p></div><div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala - 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a></div><div className="footer-nav"><p className="footer-label">Explore</p><Link href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact us</Link><Link href="/donate">Donate</Link><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div></div><div className="shell footer-bottom"><span>Copyright {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala</span></div></footer>
+      <footer className="footer" id="contact"><div className="shell footer-top"><div className="footer-brand"><Link className="brand brand--footer" href="/"><span className="logo-crop logo-crop--footer"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="330px" /></span></Link><p>Empowering Lives,<br />Enriching Communities.</p></div><div className="footer-contact"><p className="footer-label">Visit us</p><address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala - 686581</address><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:info@gracepathfoundation.com">info@gracepathfoundation.com</a></div><div className="footer-nav"><p className="footer-label">Explore</p><Link href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact us</Link><Link href="/donate">Donate</Link><a href="https://www.instagram.com/gracepath_foundation?stkn=MXhyMDloY2dzMmVodw==" target="_blank" rel="noreferrer">Instagram</a></div></div><div className="shell footer-bottom"><span>Copyright {new Date().getFullYear()} Gracepath Development Foundation</span><span>Made with care in Kerala</span></div></footer>
     </main>
   );
 }

@@ -92,7 +92,7 @@ export default function DonatePage() {
             <p className="footer-label">Visit us</p>
             <address>10/30, Kunnathetthu Building,<br />Chennad, Kottayam,<br />Kerala — 686581</address>
             <a href="tel:+919979411579">+91 99794 11579</a>
-            <a href="mailto:gracepathdevelopmentfoundation@gmail.com">gracepathdevelopmentfoundation@gmail.com</a>
+            <a href="mailto:info@gracepathfoundation.com">info@gracepathfoundation.com</a>
           </div>
           <div className="footer-nav">
             <p className="footer-label">Explore</p>
