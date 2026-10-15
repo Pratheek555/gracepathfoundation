@@ -153,7 +153,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> A foundation for shared progress</p>
             <h1><span className="hero-title-line">Empowering lives,</span><em>Enriching communities.</em></h1>
-            <p className="hero-lede">We walk alongside to strengthen communities&apos; education, health, dignity and opportunity and make it part of their everyday life.</p>
+            <p className="hero-lede">By helping individuals and families unlock their potential and foster collective resilience, we strive to build a future where community rises together</p>
             <div className="hero-actions">
               <a className="button button--dark" href="#contact">Contact us <span aria-hidden="true">↓</span></a>
               <a className="text-link" href="#programs">Explore our work <span aria-hidden="true">↓</span></a>
