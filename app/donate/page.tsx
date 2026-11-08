@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BankDetails, ReceiptRequest } from "./donation-tools";
+import { SiteHeader } from "../components/site-header";
+import { BankDetails, ReceiptRequest, UpiPayment } from "./donation-tools";
 
 export const metadata: Metadata = {
   title: "Donate | Gracepath Development Foundation",
@@ -18,40 +19,21 @@ export default function DonatePage() {
         </div>
       </div>
 
-      <header className="site-header">
-        <div className="shell nav-wrap donation-nav-wrap">
-          <Link className="brand" href="/" aria-label="Gracepath Development Foundation home">
-            <span className="logo-crop logo-crop--nav">
-              <Image
-                src="/gracepath/logo-transparent.png"
-                alt="Gracepath Development Foundation"
-                fill
-                sizes="(max-width: 640px) 230px, (max-width: 700px) 200px, (max-width: 900px) 230px, 290px"
-              />
-            </span>
-          </Link>
-          <nav className="donation-nav" aria-label="Main navigation">
-            <Link href="/">Home</Link>
-            <Link href="/about">About us</Link>
-            <Link href="/#programs">Our work</Link>
-            <Link href="/#contact">Contact</Link>
-            <Link className="donation-nav-cta" href="/donate" aria-current="page">Donate</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
-      <section className="donation-options">
+      <section className="donation-options" id="main-content" tabIndex={-1}>
         <div className="shell">
           <div className="donation-options-heading">
             <p className="section-kicker"><span /> Ways to give</p>
             <h1>Choose how you’d like to contribute.</h1>
+            <a className="text-link" href="#donation-receipt">Already donated? Request a receipt ↓</a>
           </div>
 
           <div className="donation-card">
             <section className="donation-qr-panel" aria-labelledby="donation-qr-heading">
-              <p className="donation-method">QR payment</p>
-              <h3 id="donation-qr-heading">Scan to donate</h3>
-              <p className="donation-panel-copy">Open your payment app and scan this code to contribute.</p>
+              <p className="donation-method">UPI payment</p>
+              <h2 id="donation-qr-heading">Pay by UPI</h2>
+              <p className="donation-panel-copy">On your phone, open a UPI app below. On another device, scan this code with your payment app.</p>
               <figure className="donation-qr-frame">
                 <Image
                   src="/gracepath/donation-qr.jpg"
@@ -63,16 +45,22 @@ export default function DonatePage() {
                 />
                 <figcaption>Gracepath Development Foundation</figcaption>
               </figure>
+              <UpiPayment />
             </section>
 
             <section className="donation-bank-panel" aria-labelledby="donation-bank-heading">
               <p className="donation-method">Direct bank transfer</p>
-              <h3 id="donation-bank-heading">Bank details</h3>
+              <h2 id="donation-bank-heading">Bank details</h2>
               <p className="donation-panel-copy">Contribute directly using the account details below.</p>
               <BankDetails />
             </section>
           </div>
 
+          <section className="donation-next" aria-labelledby="donation-next-heading">
+            <h2 id="donation-next-heading">After your donation</h2>
+            <ol><li>Save your payment confirmation and transaction reference / UTR.</li><li>Fill in the receipt request below with your transfer details.</li><li>Choose your email app, Gmail, or copy the message. Review and send it to the team; you can attach payment proof to your email.</li></ol>
+            <p>Need help with a payment or receipt? <a href="tel:+919979411579">Call +91 99794 11579</a> or <a href="mailto:info@gracepathfoundation.com">email our team</a>.</p>
+          </section>
           <ReceiptRequest />
           <p className="donation-contact-note">Questions about giving? <Link href="/#contact">Get in touch with our team.</Link></p>
         </div>

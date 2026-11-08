@@ -2,28 +2,35 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { SiteHeader } from "./components/site-header";
+import { RequestActions, useRequestDelivery } from "./components/request-delivery";
 import type { FormEvent } from "react";
 
 const programImages = [
   {
     src: "/gracepath/programs/community-outreach-01.png",
     alt: "Gracepath team members speaking with a resident during community outreach in Kottayam",
+    caption: "Listening to a resident during community outreach in Kottayam.",
   },
   {
     src: "/gracepath/programs/community-outreach-02.png",
     alt: "Gracepath team members delivering essential supplies to a household in Kottayam",
+    caption: "Delivering essential supplies to a household in Kottayam.",
   },
   {
     src: "/gracepath/programs/community-outreach-03.png",
     alt: "A Gracepath volunteer handing supplies to a community member",
+    caption: "A volunteer handing essential supplies to a community member.",
   },
   {
     src: "/gracepath/programs/community-outreach-04.png",
     alt: "A Gracepath team member distributing a basket of essential supplies",
+    caption: "Distributing a basket of essential supplies during outreach.",
   },
   {
     src: "/gracepath/programs/community-outreach-05.png",
     alt: "Gracepath team members and community partners gathered together",
+    caption: "Team members and community partners gathered during outreach.",
   },
 ];
 
@@ -91,11 +98,9 @@ const services = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [currentProgramImage, setCurrentProgramImage] = useState(0);
-  const [gmailDraftOpened, setGmailDraftOpened] = useState(false);
+  const delivery = useRequestDelivery();
 
-  const closeMenu = () => setMenuOpen(false);
   const showPreviousProgramImage = () => setCurrentProgramImage((current) => (current - 1 + programImages.length) % programImages.length);
   const showNextProgramImage = () => setCurrentProgramImage((current) => (current + 1) % programImages.length);
 
@@ -109,20 +114,11 @@ export default function Home() {
     const message = String(formData.get("message") || "");
     const subject = `Gracepath website inquiry — ${inquiryType} — ${name}`;
     const body = `Hello Gracepath team,\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nReason for contacting: ${inquiryType}\n\nMessage:\n${message}`;
-    const gmailParameters = new URLSearchParams({
-      view: "cm",
-      fs: "1",
-      to: "info@gracepathfoundation.com",
-      su: subject,
-      body,
-    });
-
-    window.open(`https://mail.google.com/mail/?${gmailParameters.toString()}`, "_blank", "noopener,noreferrer");
-    setGmailDraftOpened(true);
+    void delivery.submit(event, { subject, body });
   };
 
   return (
-    <main>
+    <main id="top">
       <div className="topline">
         <div className="shell topline-inner">
           <span>Grassroot Actions for a more just and inclusive India</span>
@@ -130,30 +126,14 @@ export default function Home() {
         </div>
       </div>
 
-      <header className="site-header">
-        <div className="shell nav-wrap">
-          <a className="brand" href="#top" onClick={closeMenu} aria-label="Gracepath Development Foundation home">
-            <span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="(max-width: 640px) 230px, (max-width: 700px) 200px, (max-width: 900px) 230px, 290px" /></span>
-          </a>
-          <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
-            <span /><span /><span />
-          </button>
-          <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
-            <a href="/about" onClick={closeMenu}>About us</a>
-            <a href="#programs" onClick={closeMenu}>What we do</a>
-            <a href="#approach" onClick={closeMenu}>Our approach</a>
-            <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-cta" href="/donate" onClick={closeMenu}>Donate <span aria-hidden="true">↗</span></a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
-      <section className="hero" id="top">
+      <section className="hero" id="main-content" tabIndex={-1}>
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-line" /> A foundation for shared progress</p>
             <h1><span className="hero-title-line">Empowering lives,</span><em>Enriching communities.</em></h1>
-            <p className="hero-lede">By helping individuals and families unlock their potential and foster collective resilience, we strive to build a future where community rises together</p>
+            <p className="hero-lede">By helping individuals and families unlock their potential and foster collective resilience, we strive to build a future where community rises together.</p>
             <div className="hero-actions">
               <a className="button button--dark" href="#contact">Contact us <span aria-hidden="true">↓</span></a>
               <a className="text-link" href="#programs">Explore our work <span aria-hidden="true">↓</span></a>
@@ -219,6 +199,7 @@ export default function Home() {
               <button className="carousel-arrow carousel-arrow--next" type="button" onClick={showNextProgramImage} aria-label="Show next image"><span aria-hidden="true">→</span></button>
               <div className="carousel-counter" aria-hidden="true">{String(currentProgramImage + 1).padStart(2, "0")} / {String(programImages.length).padStart(2, "0")}</div>
             </div>
+            <p className="program-caption" aria-live="polite">{programImages[currentProgramImage].caption}</p>
             <div className="carousel-dots" aria-label="Choose an image">
               {programImages.map((image, index) => (
                 <button className={index === currentProgramImage ? "carousel-dot is-active" : "carousel-dot"} type="button" onClick={() => setCurrentProgramImage(index)} aria-label={`Show image ${index + 1} of ${programImages.length}`} aria-current={index === currentProgramImage ? "true" : undefined} key={image.src} />
@@ -280,10 +261,10 @@ export default function Home() {
         <div className="support-card contact-card">
           <div className="support-copy"><div className="section-kicker"><span>04</span><div /> Contact our team</div><h2>Let’s <em>Connect</em></h2><p>Your partnership with Gracepath will amplify our reach in Enriching Lives and Empowering Communities.</p><div className="contact-direct"><a href="tel:+919979411579">+91 99794 11579</a><a href="mailto:info@gracepathfoundation.com">info@gracepathfoundation.com</a></div></div>
           <div className="contact-form-wrap">
-            <form className="contact-form" onSubmit={submitContactForm} aria-labelledby="contact-form-title">
+            <form className="contact-form" onSubmit={submitContactForm} onChange={delivery.clear} aria-labelledby="contact-form-title">
               <div className="contact-form-intro">
                 <h3 id="contact-form-title">Start a conversation</h3>
-                <p>Tell us what brings you here, and we’ll open a Gmail draft for you to review.</p>
+                <p>Tell us what brings you here. Choose how to send your message below.</p>
               </div>
               <div className="contact-form-row">
                 <label><span className="contact-field-label">Name</span><input name="name" type="text" autoComplete="name" maxLength={100} placeholder="Your name" required /></label>
@@ -294,10 +275,8 @@ export default function Home() {
                 <label><span className="contact-field-label">Reason for contacting us</span><select name="inquiryType" defaultValue="" required><option value="" disabled>Select one</option><option value="Request support">Request support</option><option value="Volunteer">Volunteer</option><option value="Donate">Donate</option><option value="Partnership">Partnership</option><option value="General inquiry">General inquiry</option></select></label>
               </div>
               <label><span className="contact-field-label">Message</span><textarea name="message" rows={6} minLength={10} maxLength={3000} placeholder="How can Gracepath help?" required /></label>
-              <div className="contact-form-footer">
-                <button className="button button--dark" type="submit">Open Gmail draft<span aria-hidden="true">↗</span></button>
-                <p className="contact-status" role="status" aria-live="polite">{gmailDraftOpened ? "Your draft is open in Gmail. Review it and press Send to finish." : "You’ll review your message in Gmail before sending."}</p>
-              </div>
+              <RequestActions delivery={delivery} />
+              <p className="receipt-send-note">This form prepares a message on your device. It is not saved on this website. Review and send your email to complete the enquiry.</p>
             </form>
           </div>
         </div>

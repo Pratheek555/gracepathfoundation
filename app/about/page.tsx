@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "../components/site-header";
 
 type Leader = {
   name: string;
@@ -40,13 +41,13 @@ const leadership: Leader[] = [
   },
   {
     name: "Angelina Mary Gino",
-    role: "Chief Coordinator",
+    role: "Program Coordinator",
     image: "/gracepath/leaders/angeloSister.jpeg",
     bio: [
       "Ms. Angelina Mary Gino is a vibrant youth leader, mental health practitioner, and dynamic advocate for social service, driven by the belief that dedicated service to society is the ultimate path to a meaningful life. A Psychology graduate from Rajagiri Viswajyothi College of Applied Sciences, she combines academic rigor with practical clinical training and a deep empathy for human well-being.",
       "Angelina has completed specialized training in Clinical Psychology with valuable exposure to Forensic Psychology, along with certifications in Peer Counselling. Her hands-on field experience includes impactful work with the Kerala Rehabilitation Institute for the Physically Affected (KRIPA) and a clinical internship at Yellowwings, where she supported individuals through psychological assessment, counseling, and holistic rehabilitation care.",
       "In addition to her clinical and academic foundation, Angelina brings exceptional creative energy and communication skills to her community work. A trained Bharatanatyam dancer with nearly a decade of formal practice and an experienced stage anchor, her artistic versatility adds extraordinary vibrancy, cultural depth, and poise to her public engagements.",
-      "As Chief Coordinator of the Gracepath Development Foundation, Angelina oversees program coordination, youth engagement, and community outreach operations. Her passion, structured approach to psychological support, and commitment to societal uplifting serve as an inspiring bridge between Gracepath's leadership vision and its community-level impact.",
+      "As Program Coordinator of the Gracepath Development Foundation, Angelina oversees program coordination, youth engagement, and community outreach operations. Her passion, structured approach to psychological support, and commitment to societal uplifting serve as an inspiring bridge between Gracepath's leadership vision and its community-level impact.",
     ],
   },
   {
@@ -89,7 +90,7 @@ const patrons: Patron[] = [
   },
   {
     name: "Mrs. Mary Sebastian",
-    image: "/gracepath/leaders/patron-new.jpg",
+    image: "/gracepath/leaders/mary-sebastian.png",
   },
 ];
 
@@ -102,7 +103,10 @@ function LeaderCard({ leader }: { leader: Leader }) {
       <div className="leader-content">
         <p className="leader-role">{leader.role}</p>
         <h3>{leader.name}</h3>
-        <div className="leader-bio">{leader.bio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+        <div className="leader-bio">
+          <p>{leader.bio[0]}</p>
+          <details className="leader-bio-details"><summary>Read full biography<span className="sr-only"> of {leader.name}</span></summary><div>{leader.bio.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></details>
+        </div>
       </div>
     </article>
   );
@@ -138,9 +142,10 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <div className="topline"><div className="shell topline-inner"><span>Grassroot Actions for a more just and inclusive India</span><Link href="/#contact">Write to us ↓</Link></div></div>
-      <header className="site-header"><div className="shell nav-wrap"><Link className="brand" href="/" aria-label="Gracepath Development Foundation home"><span className="logo-crop logo-crop--nav"><Image src="/gracepath/logo-transparent.png" alt="Gracepath Development Foundation" fill sizes="(max-width: 640px) 230px, (max-width: 700px) 200px, (max-width: 900px) 230px, 290px" /></span></Link><nav className="main-nav about-nav" aria-label="Main navigation"><Link className="about-nav-active" href="/about">About us</Link><Link href="/#programs">What we do</Link><Link href="/#approach">Our approach</Link><Link href="/#contact">Contact</Link><Link className="nav-cta" href="/donate">Donate ↗</Link></nav></div></header>
+      <SiteHeader />
+      <div id="main-content" tabIndex={-1} />
 
-      <section className="about-hero"><div className="shell about-hero-grid"><div><p className="eyebrow"><span className="eyebrow-line" /> About Gracepath</p><h1>Empowered<br />people lead the<br /><em>path to change.</em></h1></div><div className="about-hero-copy"><p>Gracepath Development Foundation is built on a simple belief: lasting change grows when people are seen, heard, and supported to shape their own future.</p><div className="about-hero-meta"><span>Leadership matrix</span><span>01 - 08</span></div></div></div><div className="about-hero-shape about-hero-shape--one" /><div className="about-hero-shape about-hero-shape--two" /><div className="about-hero-sun" /></section>
+      <section className="about-hero"><div className="shell about-hero-grid"><div><p className="eyebrow"><span className="eyebrow-line" /> About Gracepath</p><h1>Empowered<br />people lead the<br /><em>path to change.</em></h1></div><div className="about-hero-copy"><p>Gracepath Development Foundation is built on a simple belief: lasting change grows when people are seen, heard, and supported to shape their own future.</p><div className="about-hero-meta"><span>Meet our team and patrons</span><span>01 - 08</span></div></div></div><div className="about-hero-shape about-hero-shape--one" /><div className="about-hero-shape about-hero-shape--two" /><div className="about-hero-sun" /></section>
 
       <section className="about-story section shell"><div className="section-kicker"><span>01</span><div /> Our story</div><div className="about-story-grid"><h2>A foundation with<br /><em>heart at the centre.</em></h2><div><p className="lead">We work across education, healthcare, environment, livelihoods, and community development - forging partnerships that turn care into meaningful, ground-level action.</p><p>Our leadership brings together social work, healthcare, mental health, public service, entrepreneurship, and community organizing. Different experiences, one shared commitment: to uplift marginalized communities with dignity, compassion, and purpose.</p></div></div></section>
 
